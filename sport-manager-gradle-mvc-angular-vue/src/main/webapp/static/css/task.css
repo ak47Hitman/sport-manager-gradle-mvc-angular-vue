@@ -1,0 +1,54 @@
+body {
+	margin: 0;
+}
+
+.navbar {
+	overflow: hidden;
+	background-color: #333;
+	position: fixed;
+	top: 0;
+	width: 100%;
+}
+
+.navbar a {
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+
+.middle {
+	padding: 16px;
+	margin-top: 30px;
+	height: 1500px;
+	margin-top: 30px;
+}
+
+.buttondemoBasicUsage section {
+	background: #f7f7f7;
+	border-radius: 3px;
+	text-align: center;
+	margin: 1em;
+	position: relative !important;
+	padding-bottom: 10px;
+}
+
+.buttondemoBasicUsage md-content {
+	margin-right: 7px;
+}
+
+.buttondemoBasicUsage section .md-button {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.buttondemoBasicUsage .label {
+	position: absolute;
+	bottom: 5px;
+	left: 7px;
+	font-size: 14px;
+	opacity: 0.54;
+}
