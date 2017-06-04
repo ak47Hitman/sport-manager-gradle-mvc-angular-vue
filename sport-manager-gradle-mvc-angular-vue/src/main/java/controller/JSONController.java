@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import object.Task;
+import object.Player;
 
 /**
- * JsonControler get {@link Task} by request / page
+ * JsonControler get {@link Player} by request / page
  * 
  * @version 1.0
  * @author aka47
@@ -25,17 +25,17 @@ import object.Task;
 @RestController
 public class JSONController {
 
-	private List<Task> tasks = new ArrayList<>();
+	private List<Player> players = new ArrayList<>();
 
 	@RequestMapping({ "/", "/home" })
 	public ModelAndView showHomePage(Locale locale, Model model) {
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping(value = "/task", method = RequestMethod.GET)
-	public @ResponseBody Task getTask() {
-		Task shop = new Task(12L, "Content");
-		return shop;
+	@RequestMapping(value = "/player", method = RequestMethod.GET)
+	public @ResponseBody Player getTask() {
+		Player player = new Player(12L, "Name");
+		return player;
 	}
 
 	// @RequestMapping(value = "/settasks", method = RequestMethod.POST,
@@ -56,19 +56,18 @@ public class JSONController {
 	// return "new-delivery";
 	// }
 
-	@RequestMapping(value = "/settasks", method = RequestMethod.POST)
+	@RequestMapping(value = "/setplayers", method = RequestMethod.POST)
 	public String updateHosting(@RequestBody String atrr) {
-		tasks.add(new Task(122L, atrr));
+		players.add(new Player(122L, atrr));
 		return "SET" + atrr;
 	}
 
-	@RequestMapping(value = "/tasks", method = RequestMethod.GET)
-	public @ResponseBody List<Task> getTasks() {
-		// List<Task> tasks = new ArrayList<>();
-		tasks.add(new Task(12L, "Content"));
-		tasks.add(new Task(13L, "Content2"));
-		tasks.add(new Task(14L, "Content3"));
+	@RequestMapping(value = "/players", method = RequestMethod.GET)
+	public @ResponseBody List<Player> getTasks() {
+		players.add(new Player(12L, "Evgeniy"));
+		players.add(new Player(13L, "Igor"));
+		players.add(new Player(14L, "Vasiya"));
 
-		return tasks;
+		return players;
 	}
 }

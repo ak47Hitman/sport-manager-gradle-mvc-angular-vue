@@ -44,7 +44,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/error").setViewName("error.html");
 		registry.addViewController("/index").setViewName("index");
-		registry.addViewController("/mytasks").setViewName("mytasks");
+		// registry.addViewController("/mytasks").setViewName("mytasks");
 		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
 	}
 
@@ -58,7 +58,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
-		// viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setPrefix("/static/views/");
 		viewResolver.setSuffix(".html");
 		return viewResolver;

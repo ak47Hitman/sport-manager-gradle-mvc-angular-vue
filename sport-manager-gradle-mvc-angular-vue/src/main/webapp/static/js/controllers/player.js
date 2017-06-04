@@ -1,4 +1,4 @@
-var taskApp = angular.module('tasksApp', [ 'ngAnimate', 'ngMaterial' ]);
+var taskApp = angular.module('tournamentApp', [ 'ngAnimate', 'ngMaterial' ]);
 
 taskApp.config(function($mdThemingProvider) {
 	$mdThemingProvider.theme('default').primaryPalette('pink').accentPalette(
@@ -6,22 +6,23 @@ taskApp.config(function($mdThemingProvider) {
 });
 
 function postTask($scope, $http, data) {
-	$http.post('/gradle-spring-mvc/settasks', JSON.parse(JSON.stringify(data)))
-			.then(function(response) {
-				if (response.data)
-					$scope.msg = "Post Data Submitted Successfully!";
-			}, function(response) {
-				$scope.msg = "Service not Exists";
-				$scope.statusval = response.status;
-				$scope.statustext = response.statusText;
-				$scope.headers = response.headers();
-			});
+	$http.post('/sport-manager-gradle-mvc-angular-vue/setplayers',
+			JSON.parse(JSON.stringify(data))).then(function(response) {
+		if (response.data)
+			$scope.msg = "Post Data Submitted Successfully!";
+	}, function(response) {
+		$scope.msg = "Service not Exists";
+		$scope.statusval = response.status;
+		$scope.statustext = response.statusText;
+		$scope.headers = response.headers();
+	});
 }
 
 function getTasks($scope, $http) {
-	$http.get('/gradle-spring-mvc/task').then(function(response) {
-		$scope.task = response.data;
-	});
+	$http.get('/sport-manager-gradle-mvc-angular-vue/player').then(
+			function(response) {
+				$scope.task = response.data;
+			});
 
 	$scope.name = null;
 	$scope.name = 'test1';
@@ -63,7 +64,7 @@ function getTasks($scope, $http) {
 	$scope.googleUrl = 'http://google.com';
 }
 
-taskApp.controller('taskController', function($scope, $http) {
+taskApp.controller('playerController', function($scope, $http) {
 	getTasks($scope, $http);
 });
 
@@ -127,3 +128,4 @@ taskApp.controller('taskController', function($scope, $http) {
 // document.getElementById("name").disabled = true;
 // }
 // });
+
