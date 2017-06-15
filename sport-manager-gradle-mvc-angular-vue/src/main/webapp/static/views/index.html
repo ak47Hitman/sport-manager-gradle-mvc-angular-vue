@@ -71,8 +71,11 @@
 							ng-show="position.$error.number"> Not valid number!</span>
 					</div>
 					<md-input-container class="md-block"> <!-- Use floating placeholder instead of label -->
-					<md-button class="md-raised">Add</md-button> <md-button
-						class="md-raised md-primary">Primary</md-button> <md-button
+					<p>The button has been clicked {{count}} times.</p>
+					<md-button
+						ng-click="postPlayer()"
+						class="md-raised">jr2</md-button> <md-button class="md-raised">Add</md-button>
+					<md-button class="md-raised md-primary">Primary</md-button> <md-button
 						ng-disabled="true"
 						class="md-raised md-primary">Disabled</md-button> <md-button
 						class="md-raised md-warn">Warn</md-button> </md-input-container>

@@ -5,7 +5,7 @@ taskApp.config(function($mdThemingProvider) {
 			'orange');
 });
 
-function postTask($scope, $http, data) {
+function postPlayer($scope, $http, data) {
 	$http.post('/sport-manager-gradle-mvc-angular-vue/setplayers',
 			JSON.parse(JSON.stringify(data))).then(function(response) {
 		if (response.data)
@@ -24,25 +24,25 @@ function getTasks($scope, $http) {
 				$scope.task = response.data;
 			});
 
-	$scope.name = null;
-	$scope.name = 'test1';
-	$scope.age = null;
-	$scope.age = 'test2';
-	$scope.adress = null;
-	$scope.adress = 'test3';
-	$scope.lblMsg = null;
-	$scope.postdata = function(name, age, adress) {
-
-		var data = {
-			name : name,
-			age : age,
-			adress : adress
-		};
-
-		// Call the services
-		// JSON.stringify(data)
-		postTask($scope, $http, data);
-	};
+	// $scope.name = null;
+	// $scope.name = 'test1';
+	// $scope.age = null;
+	// $scope.age = 'test2';
+	// $scope.adress = null;
+	// $scope.adress = 'test3';
+	// $scope.lblMsg = null;
+	// $scope.postdata = function(name, age, adress) {
+	//
+	// var data = {
+	// name : name,
+	// age : age,
+	// adress : adress
+	// };
+	//
+	// // Call the services
+	// // JSON.stringify(data)
+	// postTask($scope, $http, data);
+	// };
 
 	$scope.user = {
 		title : 'Developer',
@@ -66,6 +66,34 @@ function getTasks($scope, $http) {
 
 taskApp.controller('playerController', function($scope, $http) {
 	getTasks($scope, $http);
+	$scope.count = 0;
+	$scope.postPlayer = function() {
+		$scope.name = null;
+		$scope.name = 'test1';
+		$scope.age = null;
+		$scope.age = 'test2';
+		$scope.adress = null;
+		$scope.adress = 'test3';
+		$scope.lblMsg = null;
+
+		var data = {
+			name : '1233',
+			age : '12',
+			adress : '213123'
+		};
+
+		$http.post('/sport-manager-gradle-mvc-angular-vue/setplayers',
+				JSON.parse(JSON.stringify(data))).then(function(response) {
+			if (response.data)
+				$scope.msg = "Post Data Submitted Successfully!";
+			alert('Count: ' + $scope.msg);
+		}, function(response) {
+			$scope.msg = "Service not Exists";
+			$scope.statusval = response.status;
+			$scope.statustext = response.statusText;
+			$scope.headers = response.headers();
+		});
+	};
 });
 
 // var app = angular.module('myapp', []);
